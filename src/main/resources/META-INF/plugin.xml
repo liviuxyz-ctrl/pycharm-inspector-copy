@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>ai.capps.inspectorcopy</id>
+    <name>Inspector Copy for LLM</name>
+    <vendor email="liviu.staniloiu@capps.ai" url="https://github.com/liviuxyz-ctrl">liviuxyz-ctrl</vendor>
+
+    <description><![CDATA[
+        Copies selected inspection errors from the Problems panel as a structured
+        Markdown block (file path, line, severity, message, ±5 lines of code context)
+        ready to paste into any LLM chat.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <action id="ai.capps.inspectorcopy.CopyForLlmAction"
+                class="ai.capps.inspectorcopy.CopyForLlmAction"
+                text="Copy for LLM"
+                description="Copy selected inspection errors with code context as Markdown">
+            <add-to-group group-id="ProblemsView.ToolWindow.TreePopup" anchor="first"/>
+            <add-to-group group-id="InspectionResults.TreePopup" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt shift C"/>
+        </action>
+    </actions>
+</idea-plugin>
